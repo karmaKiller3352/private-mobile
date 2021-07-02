@@ -1,0 +1,29 @@
+{
+  "menu": {
+    "bottom": {
+      "home": "Главная",
+      "pricelist": "Прайс-лист",
+      "clients": "Клиенты",
+      "orders": "Заказы",
+      "reports": "Отчеты"
+    },
+    "drawer": {
+      "profile": "Профиль",
+      "messages": "Сообщения",
+      "settings": "Настройки",
+      "payment": "Оплата",
+      "logout": "Выйти"
+    }
+  },
+  "screen": {
+    "settings": {
+      "language_label": "Выберите язык"
+    },
+    "main": {
+      "menu": {
+        "home": "Главная",
+        "page": "Заголовок"
+      }
+    }
+  }
+}

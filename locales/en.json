@@ -1,0 +1,29 @@
+{
+  "menu": {
+    "bottom": {
+      "home": "Home",
+      "pricelist": "Pricelist",
+      "clients": "Clients",
+      "orders": "Orders",
+      "reports": "Reports"
+    },
+    "drawer": {
+      "profile": "Profile",
+      "messages": "Messages",
+      "settings": "Settings",
+      "payment": "Payement",
+      "logout": "Logout"
+    }
+  },
+  "screen": {
+    "settings": {
+      "language_label": "Choose language"
+    },
+    "main": {
+      "menu": {
+        "home": "Home",
+        "page": "Title"
+      }
+    }
+  }
+}
