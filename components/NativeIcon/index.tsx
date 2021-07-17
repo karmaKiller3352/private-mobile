@@ -8,8 +8,21 @@ import {
   Feather,
   SimpleLineIcons
 } from '@expo/vector-icons'
+import * as R from 'ramda'
 import React from 'react'
-import { FlattenSimpleInterpolation, StyledInterface } from 'styled-components'
+import { TouchableOpacity } from 'react-native'
+import styled, { css } from 'styled-components/native'
+
+const iconMapper = {
+  Feather: Feather,
+  FontAwesome: FontAwesome,
+  SimpleLineIcons: SimpleLineIcons,
+  Ionicons: Ionicons,
+  MaterialCommunityIcons: MaterialCommunityIcons,
+  AntDesign: AntDesign,
+  FontAwesome5: FontAwesome5,
+  MaterialIcons: MaterialIcons
+}
 
 export interface IRenderIcon {
   iconType?: string
@@ -20,33 +33,25 @@ export interface IRenderIcon {
   title?: string
   label?: string
   style?: any
-  onPress?(): void
+  touchable?: boolean
+  onPress?(props: any): void
 }
 
 const NativeIcon: React.FC<IRenderIcon> = (props) => {
   const color = props.active ? '#f4c772' : props.color || 'black'
+  const Component = iconMapper[props.iconType]
 
-  switch (props.iconType) {
-    case 'Feather':
-      return <Feather name={props.iconName} size={props.size || 24} color={color} {...props} />
-    case 'FontAwesome':
-      return <FontAwesome name={props.iconName} size={props.size || 24} color={color} {...props} />
-    case 'SimpleLineIcons':
-      return <SimpleLineIcons name={props.iconName} size={props.size || 24} color={color} {...props} />
-    case 'Ionicons':
-      return <Ionicons name={props.iconName} size={props.size || 24} color={color} {...props} />
-    case 'MaterialCommunityIcons':
-      return <MaterialCommunityIcons name={props.iconName} size={props.size || 24} color={color} {...props} />
-    case 'AntDesign':
-      return <AntDesign name={props.iconName} size={props.size || 24} color={color} {...props} />
-    case 'FontAwesome5':
-      return <FontAwesome5 name={props.iconName} size={props.size || 24} color={color} {...props} />
-    case 'MaterialIcons':
-      return <MaterialIcons name={props.iconName} size={props.size || 24} color={color} {...props} />
+  const rest = R.omit(['onPress'], props)
 
-    default:
-      return null
+  if (props.touchable) {
+    return (
+      <TouchableOpacity activeOpacity={0.6} delayPressIn={10} delayPressOut={300} onPress={props.onPress}>
+        <Component name={props.iconName} size={props.size || 24} color={color} />
+      </TouchableOpacity>
+    )
   }
+
+  return <Component name={props.iconName} size={props.size || 24} color={color} {...props} />
 }
 
 export default NativeIcon

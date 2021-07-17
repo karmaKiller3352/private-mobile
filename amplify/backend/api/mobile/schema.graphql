@@ -1,0 +1,22 @@
+enum Messenger {
+  TELEGRAM
+  WHATSAPP
+  VIBER
+}
+
+type Client @model @auth(rules: [{allow: private}, {allow: owner}]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  additional_info: String
+  phone: String
+  phoneCountry: String
+  phoneCountryCode: String
+  mailPhone: String
+  mailPhoneCountry: String
+  mailPhoneCountryCode: String
+  messenger: Messenger
+  delivery_info: String
+  owner: String
+}
+ 

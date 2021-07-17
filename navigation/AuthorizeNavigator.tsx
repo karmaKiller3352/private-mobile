@@ -3,23 +3,23 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { AuthorizeParamList } from '../types'
 
 import config from './config'
-import Authorize from '../screens/Authorize'
+import Auth from '../screens/Auth'
 
 const AuthorizerStack = createStackNavigator<AuthorizeParamList>()
 
-const AuthorizeNavigator = (props: any) => {
+const AuthorizeNavigator = () => {
   return (
     <AuthorizerStack.Navigator
       screenOptions={{ ...config.stackNavigatorOptions, headerRight: () => null }}
       initialRouteName="SignIn"
       mode="card"
     >
-      <AuthorizerStack.Screen options={{ headerShown: false }} name="SignIn" component={Authorize.SignIn} />
-      <AuthorizerStack.Screen name="SignUp" options={{ title: 'Sign up' }} component={Authorize.SignUp} />
+      <AuthorizerStack.Screen options={{ headerShown: false }} name="SignIn" component={Auth.SignIn} />
+      <AuthorizerStack.Screen name="SignUp" options={{ title: 'Sign up' }} component={Auth.SignUp} />
       <AuthorizerStack.Screen
         name="RestorePassword"
         options={{ title: 'Restore password' }}
-        component={Authorize.RestorePassword}
+        component={Auth.RestorePassword}
       />
     </AuthorizerStack.Navigator>
   )

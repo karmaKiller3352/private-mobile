@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { DrawerActions, useNavigation } from '@react-navigation/native'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import NativeIcon from '../NativeIcon'
 import { HeaderBackButton, StackHeaderLeftButtonProps } from '@react-navigation/stack'
 
@@ -24,11 +24,27 @@ const BackButton = ({ config, drawer }: IBackButton) => {
   })
 
   if (drawer)
-    return <NativeIcon style={styles.image} onPress={clickHandler} iconType="Ionicons" color={config.tintColor} iconName="arrow-back" size={30} />
+    return (
+      <View style={styles.image}>
+        <NativeIcon
+          touchable
+          onPress={clickHandler}
+          iconType="Ionicons"
+          color={config.tintColor}
+          iconName="arrow-back"
+          size={30}
+        />
+      </View>
+    )
 
   return (
     config.canGoBack && (
-      <HeaderBackButton {...config} backImage={() => <NativeIcon iconType="Ionicons" color={config.tintColor} iconName="arrow-back" size={30} />} />
+      <HeaderBackButton
+        {...config}
+        backImage={() => (
+          <NativeIcon iconType="Ionicons" color={config.tintColor} iconName="arrow-back" size={30} />
+        )}
+      />
     )
   )
 }

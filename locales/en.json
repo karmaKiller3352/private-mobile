@@ -1,4 +1,24 @@
 {
+  "form": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "contact_phone": "Your contact number:",
+    "account_number": "Number for mailing",
+    "mail_messenger": "Messenger for mailing",
+    "additional_info": "Additional info",
+    "delivery_info": "Delivery info",
+    "preferred_messenger": "Preferred messenger: "
+  },
+  "modal": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "defaultMessage": "Are you sure?",
+    "removeTitle": "Are you sure you want to delete?"
+  },
+  "errors": {
+    "required": "Field is required",
+    "textarea_too_long": "Must be at most 200 characters"
+  },
   "menu": {
     "bottom": {
       "home": "Home",
@@ -17,12 +37,26 @@
   },
   "screen": {
     "settings": {
-      "language_label": "Choose language"
+      "language_label": "Choose language",
+      "theme_label": "Choose theme"
     },
     "main": {
       "menu": {
         "home": "Home",
         "page": "Title"
+      },
+      "date": "Current date",
+      "pricelist": "Price list for today",
+      "count": "Items count",
+      "purchase_cost": "Purchase cost",
+      "sale_value": "Sale value"
+    },
+    "client": {
+      "menu": {
+        "list": "List of clients",
+        "edit": "Edit Client",
+        "add_new": "Add Client",
+        "details": "Client profile"
       }
     }
   }

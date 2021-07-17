@@ -8,6 +8,13 @@ export type MainStackParamList = {
   Static: undefined
 }
 
+export type ClientStackParamList = {
+  List: undefined
+  Details: undefined
+  Add: any
+  Edit: any
+}
+
 export type RootStackParamList = {
   Authorize: undefined
   Application: undefined

@@ -1,4 +1,4 @@
-import styled, { useTheme, css } from 'styled-components/native'
+import styled, { useTheme } from 'styled-components/native'
 import { useTranslation } from 'react-i18next'
 import { SafeAreaView, TouchableOpacity } from 'react-native'
 import { useNavigation, DrawerActions } from '@react-navigation/native'
@@ -8,8 +8,6 @@ import * as R from 'ramda'
 
 import NativeIcon, { IRenderIcon } from '../../components/NativeIcon'
 import { useCallback } from 'react'
-import theme from '../../styles/theme'
-import { Themes } from '../../constants/themes'
 
 const Wrapper = styled.View`
   width: 100%;
@@ -49,13 +47,13 @@ const NameWrapper = styled.Text`
   margin-top: 20px;
   font-weight: bold;
   font-size: 18px;
-  color: ${(props) => props.theme.color.secondary};
+  color: ${(props) => props.theme.color.primary};
 `
 
 const CompanyName = styled.Text`
   margin-top: 10px;
   font-size: 14px;
-  color: ${(props) => props.theme.color.secondary};
+  color: ${(props) => props.theme.color.primary};
 `
 
 const PhotoTitle = styled.Text`
@@ -100,33 +98,10 @@ const LogoutButton = styled.Pressable`
 `
 
 const LogoutLabel = styled.Text`
-  color: ${(props) => props.theme.color.secondary};
+  color: ${(props) => props.theme.color.primary};
   font-size: 20px;
   font-weight: bold;
   margin-left: 20px;
-`
-
-const ThemesBlock = styled.View`
-  margin-top: 40px;
-  margin-left: 25px;
-  display: flex;
-  flex-direction: row;
-`
-
-const ThemePicker = styled.View<{ color: string; active?: boolean }>`
-  width: 50px;
-  border-radius: 50px;
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  background-color: ${({ color }) => color};
-  ${({ active }) =>
-    active &&
-    css`
-      border: 3px solid #ccc;
-    `}
 `
 
 const MenuItem: React.FC<IRenderIcon> = (props) => {
@@ -138,12 +113,9 @@ const MenuItem: React.FC<IRenderIcon> = (props) => {
   )
 }
 
-const Content = (props) => {
+const Content = () => {
   const navigation = useNavigation()
-  const {
-    auth,
-    theme: { current, setTheme }
-  } = useContext(context)
+  const { auth } = useContext(context)
 
   const { i18n } = useTranslation()
 
@@ -173,7 +145,7 @@ const Content = (props) => {
     }),
     [i18n.language]
   )
-
+  const image = null
   const { color } = useTheme()
 
   const clickHandler = useCallback((routeName) => {
@@ -182,14 +154,12 @@ const Content = (props) => {
     return navigation.dispatch(jumpToAction)
   }, [])
 
-  const changeTheme = useCallback((t: Themes) => setTheme(t), [])
-
   return (
     <SafeAreaView>
       <Wrapper>
         <TopContainer>
-          {props.image ? (
-            <PhotoWrapper source={props.image} />
+          {image ? (
+            <PhotoWrapper source={image} />
           ) : (
             <ImageWrapper>
               <PhotoTitle>AS</PhotoTitle>
@@ -204,7 +174,7 @@ const Content = (props) => {
               <TouchableOpacity onPress={() => clickHandler(item)} key={item}>
                 <MenuItem
                   title={drawRouteMap[item].title}
-                  color={color.secondary}
+                  color={color.primary}
                   iconType={drawRouteMap[item].iconType}
                   iconName={drawRouteMap[item].iconName}
                 />
@@ -212,23 +182,9 @@ const Content = (props) => {
             )
           }, R.keys(drawRouteMap))}
         </MenuContainer>
-        <ThemesBlock>
-          {R.map((themeName: any) => {
-            return (
-              <TouchableOpacity key={themeName} onPress={() => changeTheme(themeName)}>
-                <ThemePicker active={themeName === current} color={theme[themeName].background.primary} />
-              </TouchableOpacity>
-            )
-          }, R.keys(theme))}
-        </ThemesBlock>
         <LogoutWrapper>
           <LogoutButton onPress={auth.setUnauthenticated}>
-            <NativeIcon
-              iconName="logout"
-              iconType="MaterialCommunityIcons"
-              color={color.secondary}
-              size={25}
-            />
+            <NativeIcon iconName="logout" iconType="MaterialCommunityIcons" color={color.primary} size={25} />
             <LogoutLabel>{i18n.t('menu.drawer.logout')}</LogoutLabel>
           </LogoutButton>
         </LogoutWrapper>

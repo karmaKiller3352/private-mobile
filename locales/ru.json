@@ -1,4 +1,43 @@
 {
+  "Sign In": "Войти",
+  "Please Sign In / Sign Up": "Войти / Зарегистрироваться",
+  "Sign Up": "Зарегистрироваться",
+  "Sign in to your account": "Войти в ваш аккаунт",
+  "Username": "Логин",
+  "Password": "Пароль",
+  "Enter your username": "Введите вашу электронную почту",
+  "Enter your password": "Введите ваш пароль",
+  "Enter your confirmation code": "Введите код подтверждения",
+  "Confirmation Code": "Код подтверждения",
+  "Back to Sign In": "Войти",
+  "Forgot Password": "Забыли пароль",
+  "Email": "Электронная почта",
+  "Phone Number": "Номер телефона",
+  "Create a new account": "Создать новый аккаунт",
+  "Confirm a Code": "Подтвердить код отправленный на почту",
+  "Confirm Sign Up": "Подтвердить регистрацию",
+  "Confirm": "Подтвердить",
+  "User does not exist": "Пользователя с таким логином не существует",
+  "form": {
+    "firstName": "Введите имя",
+    "lastName": "Введите фамилию",
+    "contact_phone": "Контактный номер телефона",
+    "account_number": "Номер для рассылки прайса",
+    "mail_messenger": "Мессенджер для рассылки",
+    "additional_info": "Дополнительная информация",
+    "delivery_info": "Адрес доставки",
+    "preferred_messenger": "Мессенджер: "
+  },
+  "modal": {
+    "ok": "Да",
+    "cancel": "Отменить",
+    "defaultMessage": "Вы уверены?",
+    "removeTitle": "Вы уверены что хотите удалить?"
+  },
+  "errors": {
+    "required": "Обязательно к заполнению",
+    "textarea_too_long": "Максимум 200 знаков"
+  },
   "menu": {
     "bottom": {
       "home": "Главная",
@@ -17,12 +56,26 @@
   },
   "screen": {
     "settings": {
-      "language_label": "Выберите язык"
+      "language_label": "Выберите язык",
+      "theme_label": "Выберите тему"
     },
     "main": {
       "menu": {
         "home": "Главная",
         "page": "Заголовок"
+      },
+      "date": "Текущая дата",
+      "pricelist": "Прайслист на сегодня",
+      "count": "Всего позиций",
+      "purchase_cost": "Стоимость закупки",
+      "sale_value": "Ожидаемая выручка"
+    },
+    "client": {
+      "menu": {
+        "list": "Список клиентов",
+        "add_new": "Добавить клиента",
+        "edit": "Редактировать",
+        "details": "Профиль клиента"
       }
     }
   }

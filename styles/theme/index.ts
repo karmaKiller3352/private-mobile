@@ -9,12 +9,25 @@ declare module 'styled-components' {
       block?: string
       imagePlaceholder?: string
       avatarTextColor?: string
+      avatarBGColor?: string
     }
     color: {
       primary: string
       secondary?: string
       third?: string
       menuItem?: string
+      labelText?: string
+      primaryTitle?: string
+      primarySubtitle?: string
+    }
+    border?: {
+      card?: string
+      input?: string
+      focused?: string
+      error?: string
+    }
+    icon?: {
+      removeIcon?: string
     }
   }
 }

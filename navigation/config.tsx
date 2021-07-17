@@ -26,16 +26,11 @@ const horizontalAnimation = {
 const stackNavigatorOptions: StackNavigationOptions = {
   headerBackAccessibilityLabel: 'true',
   headerTitleAlign: 'center',
-  headerTintColor: '#486ab5',
-  // headerLeft: (props) => <BackButton {...props} />,
-  // headerRight: (props) => <MenuButtton />,
+  headerTintColor: '#fff',
   headerLeft: (props) => (props.canGoBack ? <BackButton config={props} /> : <MenuButtton />),
   gestureDirection: 'horizontal',
   headerLeftContainerStyle: {
     paddingLeft: 10
-  },
-  headerTitleStyle: {
-    fontWeight: 'bold'
   },
   ...horizontalAnimation
 }

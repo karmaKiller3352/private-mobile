@@ -9,6 +9,7 @@ import { useTheme } from 'styled-components/native'
 import { useTranslation } from 'react-i18next'
 
 import config from './config'
+import ClientNavigator from './ClientNavigator'
 
 const BottomTabNavigator = createBottomTabNavigator<TabNavigatorParmaList>()
 
@@ -39,7 +40,7 @@ export default function BottomNavigator() {
       Clients: {
         iconType: 'Ionicons',
         iconName: 'ios-people-outline',
-        component: NotFoundScreen,
+        component: ClientNavigator,
         options: {
           title: i18n.t('menu.bottom.clients')
         }
@@ -78,7 +79,7 @@ export default function BottomNavigator() {
       })}
       tabBarOptions={{
         ...config.tabBarOptions,
-        activeTintColor: color.primary,
+        activeTintColor: color.third,
         inactiveTintColor: color.secondary,
         activeBackgroundColor: background.primary,
         inactiveBackgroundColor: background.primary,

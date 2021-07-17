@@ -13,11 +13,7 @@ const RootNavigator = () => {
   const { auth } = useContext(context)
   return (
     <RootStack.Navigator mode="card" headerMode="none">
-      {auth.authenticated ? (
-        <RootStack.Screen name="Application" component={AppDrawlerNavigator} />
-      ) : (
-        <RootStack.Screen name="Authorize" component={AuthorizeNavigator} />
-      )}
+      <RootStack.Screen name="Application" component={AppDrawlerNavigator} />
     </RootStack.Navigator>
   )
 }

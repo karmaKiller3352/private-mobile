@@ -10,7 +10,7 @@ import config from './config'
 const Drawler = createDrawerNavigator<AppDrawlerParamList>()
 
 const AppDrawlerNavigator = () => {
-  const { background } = useTheme()
+  const { background, color } = useTheme()
   const { t } = useTranslation()
 
   return (
@@ -19,11 +19,14 @@ const AppDrawlerNavigator = () => {
       initialRouteName="BottomMenu"
       drawerType="back"
       screenOptions={{
-        headerTintColor: background.primary,
+        headerStyle: {
+          backgroundColor: background.primary
+        },
+        headerTintColor: color.third,
         ...config.drawlerNavigationOptions
       }}
       drawerPosition="left"
-      drawerContent={(p) => <RightMenu.Content />}
+      drawerContent={() => <RightMenu.Content />}
     >
       <Drawler.Screen name="BottomMenu" options={{ headerShown: false }} component={BottomTabNavigator} />
       <Drawler.Screen

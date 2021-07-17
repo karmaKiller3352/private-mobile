@@ -4,6 +4,12 @@ import detector from 'i18next-browser-languagedetector'
 
 import en from './en.json'
 import ru from './ru.json'
+import { NativeModules, Platform } from 'react-native'
+
+export const dict = {
+  en,
+  ru
+}
 // the translations
 const resources = {
   en: {
@@ -14,7 +20,7 @@ const resources = {
   }
 }
 
-//  const locale =
+// const locale =
 //   Platform.OS === 'ios'
 //     ? NativeModules.SettingsManager.settings.AppleLocale
 //     : NativeModules.I18nManager.localeIdentifier
@@ -24,7 +30,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en',
+    lng: 'ru',
     fallbackLng: 'en', // use en if detected lng is not available
 
     keySeparator: '.', // we do not use keys in form messages.welcome

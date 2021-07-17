@@ -1,28 +1,51 @@
 import * as React from 'react'
-import styled from 'styled-components/native'
+import { useTheme } from 'styled-components/native'
 import { StackScreenProps } from '@react-navigation/stack'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { useTranslation } from 'react-i18next'
+import moment from 'moment'
 import { MainStackParamList } from '../types'
+import GUI from '../styles/global'
 
-const HugeView = styled.ScrollView``
-const Content = styled.Text`
-  text-align: center;
-  font-size: 50px;
-  height: 150px;
-`
-
-const Button = styled.Button``
+const options: any = {
+  era: 'long',
+  year: 'long',
+  month: 'long'
+}
 
 export default function Main({ navigation }: StackScreenProps<MainStackParamList, 'Home'>) {
+  const { t } = useTranslation()
+  const { background } = useTheme()
+
+  const date = moment().format('MM-DD-YYYY')
+
   return (
-    <HugeView contentContainerStyle={{ flexGrow: 1 }}>
-      {/* <Button title="Go to next" onPress={() => navigation.push('Static')} /> */}
-      <Content> TEST1 </Content>
-      <Content> TEST2 </Content>
-      <Content> TEST3 </Content>
-      <Content> TEST </Content>
-      <Content> TEST </Content>
-      <Content> TEST </Content>
-      <Content> TEST </Content>
-    </HugeView>
+    <GUI.ScreenWrapper>
+      <GUI.Section>
+        <GUI.LabelContainer>
+          <MaterialCommunityIcons name="timetable" size={24} color={background.primary} />
+          <GUI.SelectorLabel>{t('screen.main.date')}</GUI.SelectorLabel>
+        </GUI.LabelContainer>
+        <GUI.Label>{date}</GUI.Label>
+      </GUI.Section>
+      <GUI.Section>
+        <GUI.LabelContainer>
+          <MaterialCommunityIcons name="clipboard-list-outline" size={24} color={background.primary} />
+          <GUI.SelectorLabel>{t('screen.main.pricelist')}</GUI.SelectorLabel>
+        </GUI.LabelContainer>
+        <GUI.Container>
+          <GUI.Label>{t('screen.main.count')}: </GUI.Label>
+          <GUI.LargeLabel>25</GUI.LargeLabel>
+        </GUI.Container>
+        <GUI.Container>
+          <GUI.Label>{t('screen.main.purchase_cost')}: </GUI.Label>
+          <GUI.LargeLabel>16 000₽</GUI.LargeLabel>
+        </GUI.Container>
+        <GUI.Container>
+          <GUI.Label>{t('screen.main.sale_value')}: </GUI.Label>
+          <GUI.LargeLabel>23 524₽</GUI.LargeLabel>
+        </GUI.Container>
+      </GUI.Section>
+    </GUI.ScreenWrapper>
   )
 }

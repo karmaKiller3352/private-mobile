@@ -2,8 +2,7 @@ import React from 'react'
 import { Themes } from '../constants/themes'
 
 export interface IAuth {
-  authenticated: boolean
-  setAuthenticated(): void
+  user: any
   setUnauthenticated(): void
 }
 
@@ -19,8 +18,7 @@ type ContextProps = {
 
 export default React.createContext<ContextProps>({
   auth: {
-    authenticated: false,
-    setAuthenticated: () => null,
+    user: {},
     setUnauthenticated: () => null
   }
 })
